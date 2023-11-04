@@ -1,0 +1,9 @@
+
+FROM ubuntu:18.04
+RUN apt-get update
+RUN apt-get install -y apache2 curl net-tools wget unzip 
+RUN apt-get install -y git
+RUN  wget https://www.free-css.com/assets/files/free-css-templates/download/page296/spering.zip
+RUN unzip spering.zip
+RUN cp -r /spering-html/* /var/www/html/
+ENTRYPOINT apachectl -D FOREGROUND
